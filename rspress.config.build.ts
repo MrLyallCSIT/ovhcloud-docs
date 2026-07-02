@@ -12,6 +12,7 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { defineConfig } from '@rspress/core';
 import { generateLinkRules } from './config/link-rules';
 import { nav } from './config/nav';
+import { regionConfig } from './config/regions';
 import type { Locale } from './config/shared';
 import { locales } from './config/shared';
 import { sidebar } from './config/sidebar';
@@ -20,17 +21,29 @@ import { rehypeLazyImages } from './plugins/rehypeLazyImages';
 import { remarkCpNavGate } from './plugins/remarkCpNavGate';
 import { remarkNoManagerHardcoded } from './plugins/remarkNoManagerHardcoded';
 
-const locale = process.env.LOCALE || 'fr';
+const locale = process.env.LOCALE || regionConfig.defaultLocale;
 const BASE_DIR = process.cwd();
 
+// Single-locale regions (e.g. US) are served at the domain root (no /{locale}/
+// prefix) and built straight into dist/; multi-locale regions keep the
+// /{locale}/ prefix and the dist/{locale}/ layout.
+const base = regionConfig.localePrefix ? `/${locale}/` : '/';
+const outDir = regionConfig.localePrefix
+  ? path.join(BASE_DIR, 'dist', locale)
+  : path.join(BASE_DIR, 'dist');
+// Only expose this region's locales to the language switcher.
+const regionLocales = locales.filter((l) =>
+  (regionConfig.locales as readonly string[]).includes(l.lang),
+);
+
 export default defineConfig({
-  root: path.join(BASE_DIR, 'docs', locale),
-  base: `/${locale}/`,
-  outDir: path.join(BASE_DIR, 'dist', locale),
+  root: path.join(BASE_DIR, regionConfig.contentDir, locale),
+  base,
+  outDir,
   publicDir: path.join(BASE_DIR, 'docs', 'public'),
 
-  // All locales included for language switcher functionality
-  locales: [...locales],
+  // Locales included for language switcher functionality (region-scoped)
+  locales: [...regionLocales],
   lang: locale,
 
   // Use cached lastUpdated plugin instead of built-in (avoids 80k+ git calls)
@@ -81,6 +94,8 @@ export default defineConfig({
         SENTRY_ENVIRONMENT: JSON.stringify(
           process.env.SENTRY_ENVIRONMENT ?? '',
         ),
+        // Hide the language switcher on single-locale regions (e.g. US).
+        __SINGLE_LOCALE__: JSON.stringify(!regionConfig.localePrefix),
       },
     },
     resolve: {
@@ -178,7 +193,7 @@ export default defineConfig({
     // See node_modules/@rspress/core/dist/theme/logic/useRedirect4FirstVisit.js
     localeRedirect: 'never',
     editLink: {
-      docRepoBaseUrl: `https://github.com/ovh/ovhcloud-docs/tree/develop/docs/${locale}`,
+      docRepoBaseUrl: `https://github.com/ovh/ovhcloud-docs/tree/develop/${regionConfig.repoSubdir}/${locale}`,
     },
     nav: nav as Parameters<typeof defineConfig>[0]['themeConfig']['nav'],
     sidebar,

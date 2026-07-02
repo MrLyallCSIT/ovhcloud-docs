@@ -13,6 +13,7 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { defineConfig, type NavItem } from '@rspress/core';
 import { generateLinkRules } from './config/link-rules';
 import { nav } from './config/nav';
+import { regionConfig } from './config/regions';
 import type { Locale } from './config/shared';
 import { sidebar } from './config/sidebar';
 import { pluginLastUpdatedFromCache } from './plugins/lastUpdatedFromCache';
@@ -66,9 +67,17 @@ const allLocales = [
   },
 ] as const;
 
-const devLocales = (process.env.DEV_LOCALES || 'fr,en').split(',');
-const activeLocales = allLocales.filter((l) => devLocales.includes(l.lang));
-const excludedLocales = allLocales
+// Restrict to the active region's locales (config/regions.ts). EU keeps the
+// historical fr+en dev default; a single-locale region defaults to its locale.
+const regionLocales = allLocales.filter((l) =>
+  (regionConfig.locales as readonly string[]).includes(l.lang),
+);
+const devLocaleDefault = regionConfig.localePrefix
+  ? 'fr,en'
+  : regionConfig.defaultLocale;
+const devLocales = (process.env.DEV_LOCALES || devLocaleDefault).split(',');
+const activeLocales = regionLocales.filter((l) => devLocales.includes(l.lang));
+const excludedLocales = regionLocales
   .filter((l) => !devLocales.includes(l.lang))
   .map((l) => l.lang);
 
@@ -107,7 +116,7 @@ const pathExcludes = devPath
   : [];
 
 export default defineConfig({
-  root: path.join(__dirname, 'docs'),
+  root: path.join(__dirname, regionConfig.contentDir),
   plugins: [pluginLastUpdatedFromCache()],
   builderConfig: {
     plugins: [pluginSass()],
@@ -146,6 +155,8 @@ export default defineConfig({
         SENTRY_ENVIRONMENT: JSON.stringify(
           process.env.SENTRY_ENVIRONMENT ?? '',
         ),
+        // Hide the language switcher on single-locale regions (e.g. US).
+        __SINGLE_LOCALE__: JSON.stringify(!regionConfig.localePrefix),
       },
     },
     resolve: {

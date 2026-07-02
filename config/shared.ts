@@ -9,6 +9,7 @@ import * as path from 'node:path';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import type { UserConfig } from '@rspress/core';
 import { nav } from './nav';
+import { regionConfig } from './regions';
 import { sidebar } from './sidebar';
 
 // All supported locales - included in every build for language switcher
@@ -160,8 +161,10 @@ export const sharedConfig: Partial<UserConfig> = {
 export function createLocaleConfig(locale: Locale): Partial<UserConfig> {
   return {
     ...sharedConfig,
-    root: path.join(BASE_DIR, 'docs', locale),
-    base: `/${locale}/`,
-    outDir: path.join(BASE_DIR, 'doc_build', locale),
+    root: path.join(BASE_DIR, regionConfig.contentDir, locale),
+    base: regionConfig.localePrefix ? `/${locale}/` : '/',
+    outDir: regionConfig.localePrefix
+      ? path.join(BASE_DIR, 'doc_build', locale)
+      : path.join(BASE_DIR, 'doc_build'),
   };
 }
