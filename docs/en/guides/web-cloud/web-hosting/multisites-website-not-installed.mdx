@@ -1,12 +1,11 @@
 ---
 title: Resolving a “Site not installed” error
 description: Find out how to resolve a “Site not installed” error
-lastUpdated: 2025-08-25
+lastUpdated: 2026-07-30
 availableIn: [eu, ca, apac]
 ---
 
 import { Tab, Tabs } from '@rspress/core/theme';
-
 
 ## Objective
 
@@ -22,7 +21,6 @@ OVHcloud provides services for which you are responsible with regard to their co
 This guide is designed to help you with common tasks. Nevertheless, we recommend contacting a [specialist provider](/links/partner) or reach out to the [OVHcloud community](/links/community) if you encounter any difficulties. We will not be able to assist you. You can find more information in the [Go further](#go-further) section of this guide.
 
 :::
-
 
 ## Requirements
 
@@ -82,7 +80,6 @@ Click on the tabs below to view each of the **4** steps in succession.
   </Tab>
 </Tabs>
 
-
 ### 2 - Check the IP pointing in your domain name’s active DNS zone <a name="check-dns-domain"></a>
 
 This step involves checking that your domain or subdomain points to your Web Hosting plan’s IP address from its active DNS zone.
@@ -95,7 +92,6 @@ To find out more about DNS, visit the following pages:
 - [Modify an OVHcloud domain name’s DNS servers](/guides/web-cloud/domains/dns-server-edit)
 
 :::
-
 
 #### 2\.1 Identify the IP address of your OVHcloud web hosting plan
 
@@ -121,7 +117,6 @@ Copy the IPv4 address, then continue reading the guide.
   </Tab>
 </Tabs>
 
-
 You can also find the IP address associated with your Web Hosting plan in our guide “[Web Hosting - List of IP addresses by cluster](/guides/web-cloud/web-hosting/clusters-and-shared-hosting-ip)”.
 
 #### 2\.2 Verify the IP address recorded in your domain name’s active DNS zone
@@ -135,7 +130,6 @@ If you modify the **DNS servers** associated with your domain name directly, thi
 
 :::
 
-
 To do this, click on the tabs below to display each of the **4** steps in succession.
 
 <Tabs>
@@ -145,9 +139,8 @@ To do this, click on the tabs below to display each of the **4** steps in succes
     <img className="thumbnail" alt="Web Cloud" src="/images/assets/screens/control-panel/product-selection/web-cloud.png" loading="lazy" />
   </Tab>
   <Tab label="Step 2">
-    Click the <code className="action">DNS zones</code> menu, then choose the domain name concerned.
+    Click the <code className="action">Domain names</code> menu, choose the domain name concerned, then open the **DNS zone** tab.
     
-    <img className="thumbnail" alt="DNS zones" src="/images/assets/screens/control-panel/product-selection/web-cloud/dns-zones.png" loading="lazy" />
     
     :::info
     If your domain name does not appear in the list that appears, it means that its DNS zone is not managed from your OVHcloud Control Panel.<br/>
@@ -183,7 +176,6 @@ This means that your domain name is not managed from the OVHcloud Control Panel.
     |This warning is displayed in the <code className="action">DNS Zone</code>:<br/><br/><img className="thumbnail" alt="message-other-ovh-dns-servers" src="/images/assets/screens/control-panel/product-selection/web-cloud/domain-dns/dns-zone/message-other-ovh-dns-servers.png" loading="lazy" />|Modify your domain name’s DNS servers accordingly by following our guide on "[How to modify the DNS servers of an OVHcloud domain name](/guides/web-cloud/domains/dns-server-edit)".|
   </Tab>
 </Tabs>
-
 
 ## Go further <a name="go-further"></a>
 
