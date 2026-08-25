@@ -36,12 +36,7 @@ Questa guida ti mostra le operazioni da effettuare quando il tuo database condiv
 
 ## Procedura
 
-:::warning
-OVHcloud mette a tua disposizione servizi di cui tu sei responsabile per la configurazione e la gestione. Assicurarne il corretto funzionamento è quindi responsabilità dell'utente.
-
-Mettiamo a tua disposizione questo tutorial per supportarti nelle operazioni più frequenti. Tuttavia, in caso di difficoltà o dubbi, ti consigliamo di rivolgerti a uno [specialista del settore](/links/partner). OVH non potrà fornirti alcuna assistenza. Per maggiori informazioni consulta la sezione ["Per saperne di più"](#go-further) di questa guida.
-
-:::
+[[fragment:support-scope]]
 
 Quando il database condiviso OVHcloud raggiunge la saturazione (**overquota**), i nostri robot ti avvertono via email all'indirizzo del [contatto "amministratore"](/guides/account-and-service-management/account-information/managing-contacts) del database. 
 
@@ -229,7 +224,7 @@ DROP TABLE `table_1`
 ### Step 4: rimuovi il database dallo stato "READ ONLY" (sola lettura)
 
 I nostri robot, responsabili delle verifiche delle quote, passano regolarmente sulle nostre infrastrutture.
-Se durante l’accesso ai servizi il tuo database non è più in **overquota**, rimuovono automaticamente lo stato "READ ONLY" (sola lettura).
+Se durante l'accesso ai servizi il tuo database non è più in **overquota**, rimuovono automaticamente lo stato "READ ONLY" (sola lettura).
 Una volta completate le operazioni necessarie sul database, è sufficiente attendere fino a quando i nostri robot non verranno spostati sui servizi.
 
 Tuttavia, è possibile forzare il passaggio ai servizi per accelerare il processo. Per farlo, chiedi ai nostri robot di ricalcolare la quota del tuo servizio/database.
