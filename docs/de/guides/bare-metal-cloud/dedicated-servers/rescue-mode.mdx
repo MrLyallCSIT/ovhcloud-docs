@@ -37,16 +37,7 @@ Wenn Sie Dienste auf Ihrem Dedicated Server im laufenden Betrieb haben, wird der
 
 - Sie haben einen [Dedicated Server](https://www.ovhcloud.com/de/bare-metal/) in Ihrem Kunden-Account.
 
-{/* CP-NAV-START:baremetal-dedicated-servers */}
----
-
-### Zugriff auf das OVHcloud Kundencenter
-
-- **Direkter Link:** <ManagerLink to="/#/dedicated-servers/server">Dedicated Server</ManagerLink>
-- **Navigationspfad:** <code className="action">Bare Metal Cloud</code> > <code className="action">Dedicated Server</code> > Wählen Sie Ihren Server aus
-
----
-{/* CP-NAV-END:baremetal-dedicated-servers */}
+[[cpnav:baremetal-dedicated-servers]]
 
 ## In der praktischen Anwendung
 
@@ -321,7 +312,7 @@ lsblk
 fdisk -l
 ```
 
-Mounten Sie die Partition mit folgendem Befehl, und ersetzen Sie dabei `sdbX` mit dem im vorherigen Schritt identifizierten W
+Mounten Sie die Partition mit folgendem Befehl, und ersetzen Sie dabei `sdbX` mit dem im vorherigen Schritt identifizierten Wert:
 
 ```bash
 vmfs-fuse /dev/sdbX /mnt
@@ -383,7 +374,7 @@ Falls notwendig, kehren Sie zur Login-Shell des Rescue-Modus zurück, indem Sie 
 exit
 ```
 
-Öffnen Sie dann in Ihrem <ManagerLink to="/">OVHcloud Kundencenter</ManagerLink> die `Netboot`-Einstellungen und [ändern Sie den Modus](#netboot) wieder zu <code className="action">Auf Festplatte booten</code>.
+Ändern Sie in Ihrem <ManagerLink to="/">OVHcloud Kundencenter</ManagerLink> [den Startmodus](#netboot) wieder auf <code className="action">Von Festplatte booten</code> und bestätigen Sie.
 
 <img className="thumbnail" alt="Netboot Disk" src="/images/bare-metal-cloud/dedicated-servers/rescue-mode/rescue-mode-007.png" loading="lazy" />
 

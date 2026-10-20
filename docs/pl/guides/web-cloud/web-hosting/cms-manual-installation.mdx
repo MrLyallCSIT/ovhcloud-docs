@@ -14,10 +14,6 @@ Tutorial ten pomoże Ci ręcznie zainstalować CMS (Content Management System), 
 
 [[fragment:support-scope]]
 
-:::warning
-Oddajemy do Twojej dyspozycji niniejszy tutorial, którego celem jest pomoc w jak najlepszym wykonywaniu bieżących zadań. Niemniej jednak, w przypadku trudności zalecamy skorzystanie z pomocy [wyspecjalizowanego webmastera](/links/partner) lub producenta systemu CMS, który wybrałeś. Niestety firma OVHcloud nie będzie mogła udzielić wsparcia w tym zakresie.
-:::
-
 :::tip
 Aby zainstalować CMS **automatycznie** z poziomu <ManagerLink to="/">Panelu klienta OVHcloud</ManagerLink>, zapoznaj się z naszą dokumentacją dotyczącą [instalacji modułu "jednym kliknięciem"](/guides/web-cloud/web-hosting/cms-install-1-click-modules).
 
@@ -30,16 +26,7 @@ Aby zainstalować CMS **automatycznie** z poziomu <ManagerLink to="/">Panelu kli
 - Posiadanie oferty [hostingu](/links/web/hosting), która zawiera co najmniej jedną bazę danych.
 - Posiadanie [domeny](/links/web/domains)
 
-{/* CP-NAV-START:web-hosting */}
----
-
-### Dostęp do Panelu klienta OVHcloud
-
-- **Link bezpośredni:** <ManagerLink to="/#/web/hosting">Hosting plans</ManagerLink>
-- **Ścieżka nawigacji:** <code className="action">Web Cloud</code> > <code className="action">Hosting</code> > Wybierz hosting WWW
-
----
-{/* CP-NAV-END:web-hosting */}
+[[cpnav:web-hosting]]
 
 ## W praktyce
 
@@ -129,7 +116,7 @@ Jeśli określisz nazwę "katalogu głównego", który nie istnieje na Twoim hos
 
 - Upewnij się, czy domena, której będziesz używał do uzyskania dostępu do CMS-a, jak również jej subdomena w www, wskazują na adres IP Twojej usługi [hosting](/links/web/hosting).
 
-Aby uzyskać adres IP Twojego hostingu, zaloguj się do <ManagerLink to="/">Panelu klienta OVHcloud</ManagerLink> w części <code className="action">Web Cloud</code> i wybierz ofertę hostingu w sekcji <code className="action">Hosting</code>.<br/>
+Aby uzyskać adres IP Twojego hostingu, wybierz ofertę hostingu w sekcji <code className="action">Hosting</code>.<br/>
 W ramce <code className="action">Informacje ogólne</code> po prawej stronie znajdziesz adres IP Twojego hostingu w formularzu <code className="action">IPv4</code>.
 
 Jeśli aktywną strefą DNS Twojej domeny jest zarządzana w Twoim <ManagerLink to="/">Panelu klienta OVHcloud</ManagerLink>, porównaj adres IP Twojego hostingu z adresem IP w strefie DNS Twojej domeny, korzystając z naszej dokumentacji dotyczącej [stref DNS OVHcloud](/guides/web-cloud/domains/dns-zone-edit).
@@ -190,7 +177,7 @@ Jeśli jest to również CMS identyczny z tym, który powinieneś zainstalować,
 
 Połącz się następnie z bazą danych, aby określić "prefiksy" stołów już obecnych w środku. W ten sposób nie możesz wybrać prefiksu tabeli używanego już przez inne Twoje strony.
 
-- Aby zalogować się do bazy danych powiązanej z hostingiem, zapoznaj się z [tym przewodnikiem](/guides/web-cloud/web-hosting/sql-create-database#dostep-do-interfejsu-phpmyadmin).
+- Aby zalogować się do bazy danych powiązanej z hostingiem, zapoznaj się z [tym przewodnikiem](/guides/web-cloud/web-hosting/sql-create-database#dostęp-do-interfejsu-phpmyadmin).
 - Aby zalogować się do bazy danych na stronie WWW Cloud Databases, zapoznaj się z tym [przewodnikiem](/guides/web-cloud/databases/db-connecting-database-server).
 
 :::

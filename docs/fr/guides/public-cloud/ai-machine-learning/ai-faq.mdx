@@ -1,6 +1,6 @@
 ---
 title: FAQ - Produits IA
-lastUpdated: 2026-01-27
+lastUpdated: 2026-08-27
 ---
 
 
@@ -83,11 +83,9 @@ Pour plus d'informations sur ces produits, veuillez lire le [guide comparatif de
 Actuellement, le matériel disponible pour les AI Tools est :
 
 - `CPU` : vCores CPU Intel
-- `GPU` : NVIDIA V100S, NVIDIA A100
+- `GPU` : NVIDIA Tesla V100S, NVIDIA Ampere A100, NVIDIA Ampere A10, NVIDIA L4, NVIDIA L40s, NVIDIA H100, NVIDIA H200
 
-Vous pouvez obtenir la liste des flavors disponibles en utilisant la CLI ovhai et la commande suivante : `ovhai capabilities flavor list`.
-
-De nouveaux flavors seront bientôt disponibles, tels que le NVIDIA `H100` ainsi que le `L4` et le `L40S`.
+Vous pouvez obtenir la liste des flavors disponibles en utilisant la CLI ovhai et la commande suivante : `ovhai capabilities flavor list`. Notez que les flavors disponibles dépendent de la région sur laquelle vous êtes connecté (`ovhai config set <region>`).
 
 </details>
 
@@ -100,7 +98,7 @@ Chaque projet Public Cloud accorde par défaut à un client un nombre maximum de
 Pour votre information, les limites actuelles sont :
 
 - `CPU` : 12 par notebook / job / app
-- `GPU` : 4 pour V100S, et 2 pour A100
+- `GPU` : 4 par notebook / job / app pour V100S, A10, L4, L40s et H100 ; 2 pour A100 ; le H200 n'est disponible que par lots de 4 GPU NVLinked (le nombre de `--gpu` doit être un multiple de 4 pour ce flavor).
 
 </details>
 
@@ -118,7 +116,7 @@ Chaque outil fournit un stockage local. Cependant, celui-ci est limité et n'est
 <summary>Comment attacher et utiliser du stockage ?</summary>
 
 
-Consultez cette [documentation OVHcloud](/guides/public-cloud/ai-machine-learning/ai-data) sur les données pour plus d'informations. Vous pouvez également consulter la [documentation de conformité compatible S3*](/guides/public-cloud/ai-machine-learning/ai-s3-compliance) si vous êtes intéressé par les buckets Object Storage compatibles S3*.
+Consultez cette [documentation OVHcloud](/guides/public-cloud/ai-machine-learning/ai-data) sur les données pour plus d'informations. Vous pouvez également consulter la [documentation de conformité compatible S3<sup>1</sup>](/guides/public-cloud/ai-machine-learning/ai-s3-compliance) si vous êtes intéressé par les buckets Object Storage compatibles S3.
 
 </details>
 
@@ -211,7 +209,7 @@ Pour plus d'informations sur l'échec d'une task IA, vous devriez consulter l'`I
 <summary>Pourquoi mon notebook ou job s'est-il arrêté après 7 jours consécutifs d'exécution ?</summary>
 
 
-Pour maintenir la plateforme sécurisée et à jour, les hôtes sont redémarrés périodiquement. Tout AI Notebook et job AI Training s'exécutant en continu pendant plus de 7 jours consécutifs dans un état RUNNING est automatiquement arrêté. Si vous avez besoin d'une durée d'exécution plus longue, vous pouvez contacter [notre support](https://help.ovhcloud.com/csm?id=csm_get_help) pour étendre la limite jusqu'à **28 jours**.
+Pour maintenir la plateforme sécurisée et à jour, les hôtes sont redémarrés périodiquement. Tout AI Notebook et job AI Training s'exécutant en continu pendant plus de 7 jours consécutifs dans un état RUNNING est automatiquement arrêté. Si vous avez besoin d'une durée d'exécution plus longue, vous pouvez contacter [notre support](/links/support-contact) pour étendre la limite jusqu'à **28 jours**.
 
 </details>
 
@@ -302,12 +300,12 @@ Oui, vous pouvez utiliser le dashboard Weights & Biases au sein de votre noteboo
 </details>
 
 
-## Nous voulons vos retours !
+## Votre avis nous intéresse !
 
 N’hésitez pas à nous faire part de vos questions, retours et suggestions pour améliorer le service :
 
 - Sur le [serveur Discord OVHcloud](https://discord.gg/ovhcloud)
 
-Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+[[fragment:professional-services]]
 
-**\***: S3 est une marque déposée d'Amazon Technologies, Inc. Le service d'OVHcloud n'est ni sponsorisé, ni approuvé, ni autrement affilié à Amazon Technologies, Inc.
+[[fragment:s3-trademark]]

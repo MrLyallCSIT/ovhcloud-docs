@@ -23,16 +23,7 @@ Existem duas abordagens possíveis:
 - Dispor de acesso SSH root (ou sudo) ao seu VPS
 - Ter criado um snapshot (ou dispor de um backup diário) antes de qualquer manipulação
 
-{/* CP-NAV-START:baremetal-vps */}
----
-
-### Acesso à Área de Cliente OVHcloud
-
-- **Ligação direta:** <ManagerLink to="/#/dedicated/vps">VPS management</ManagerLink>
-- **Caminho de navegação:** <code className="action">Bare Metal Cloud</code> > <code className="action">Servidores Privados Virtuais</code> > Selecione o seu VPS
-
----
-{/* CP-NAV-END:baremetal-vps */}
+[[cpnav:baremetal-vps]]
 
 ## Instruções
 
@@ -260,7 +251,7 @@ Antes de comutar os seus utilizadores, verifique se o seu site ou aplicação fu
 
 #### 4. Comutar o tráfego para o novo VPS
 
-- **Se utilizar uma Additional IP**: na sua Área de Cliente OVHcloud, abra <ManagerLink to="/#/network/ip">Public IP</ManagerLink> (<code className="action">Network</code> > <code className="action">Public IPs</code>) e comute depois a Additional IP do VPS antigo para o novo VPS. Alguns produtos exigem que o IP passe primeiro por um **Parking IP**, apenas um bloco /32 pode ser migrado para um VPS e os MAC virtuais são temporariamente suspensos durante a operação. Consulte o guia [Migrar um Additional IP](/guides/bare-metal-cloud/dedicated-servers/move-failover-ip) para as condições detalhadas.
+- **Se utilizar uma Additional IP**: na sua Área de Cliente OVHcloud, abra <ManagerLink to="/#/network/ip">Endereços IP públicos</ManagerLink> (<code className="action">Network</code> > <code className="action">Endereços IP públicos</code>) e comute depois a Additional IP do VPS antigo para o novo VPS. Alguns produtos exigem que o IP passe primeiro por um **Parking IP**, apenas um bloco /32 pode ser migrado para um VPS e os MAC virtuais são temporariamente suspensos durante a operação. Consulte o guia [Migrar um Additional IP](/guides/bare-metal-cloud/dedicated-servers/move-failover-ip) para as condições detalhadas.
 - **Se utilizar os DNS padrão**: modifique os registos DNS (`A` / `AAAA`) do seu nome de domínio para que apontem para o novo endereço IP do seu novo VPS.
 
 #### 5. Rescindir o servidor antigo

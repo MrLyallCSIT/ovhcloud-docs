@@ -1,7 +1,7 @@
 ---
 title: Zimbra - Migrer un compte e-mail MX Plan
 description: Migrez un compte e-mail MX Plan vers un compte Zimbra OVHcloud, puis réattribuez son adresse pour finaliser le changement
-lastUpdated: 2026-08-25
+lastUpdated: 2026-08-31
 availableIn: [eu]
 ---
 
@@ -22,16 +22,7 @@ Si vous souhaitez faire évoluer votre offre e-mail MX Plan vers une offre [Zimb
 
 <Region zones={['eu']}>
 
-{/* CP-NAV-START:web-zimbra */}
----
-
-### Accès à l'espace client OVHcloud
-
-- **Lien direct :** <ManagerLink to="/#/web/zimbra">Zimbra</ManagerLink>
-- **Pour accéder à vos services :** <code className="action">Web Cloud</code> > <code className="action">Zimbra Mail</code>
-
----
-{/* CP-NAV-END:web-zimbra */}
+[[cpnav:web-zimbra]]
 
 </Region>
 
@@ -52,7 +43,7 @@ La migration d'un compte e-mail MX Plan vers un compte e-mail Zimbra se fait en 
     - [1.2 - Migration des e-mails avec OVHcloud Mail Migrator](#step12)
     - [1.3 - Sauvegarde des e-mails du compte source (facultatif)](#step13)
 2. **[Supprimer le compte MX Plan d'origine et réassigner son adresse au compte Zimbra](#step2)**
-    - [2.1 - Suppression de l'ancienne adresse e-mail MX Plan](#step21)
+    - [2.1 - Suppression de l'adresse e-mail MX Plan d'origine](#step21)
     - [2.2 - Renommer l'adresse e-mail Zimbra](#step22)
 
 Dans l'exemple ci-dessous, nous migrons l'adresse `contact@mydomain.ovh`. Pour cela nous allons créer le compte Zimbra sous le nom `contact2@mydomain.ovh`.
@@ -83,7 +74,7 @@ La migration avec OMM se déroule en 3 étapes : créer un projet, configurer l
 
     Rendez-vous sur [OVHcloud Mail Migrator](/links/web/omm) et cliquez sur <code className="action">Nouvelle migration</code>.
 
-    <img className="thumbnail" alt="Page d'accueil d'OVHcloud Mail Migrator" src="/images/web-cloud/email-and-collaborative-solutions/zimbra/migrate-mxplan-to-zimbra/omm-01.png" loading="lazy" />
+    <img className="thumbnail" alt="Page d'accueil d'OVHcloud Mail Migrator" src="/images/assets/screens/email-clients/omm/omm-01.png" loading="lazy" />
 
     - **Adresse e-mail de contact du projet** : Saisissez une adresse e-mail qui recevra les identifiants et les notifications de suivi. N'utilisez pas une adresse qui sera migrée dans ce projet.
     - **Mot de passe du projet** : Définissez un mot de passe (10 caractères minimum, avec au moins 1 caractère spécial, 1 chiffre, 1 majuscule et 1 minuscule).
@@ -98,7 +89,7 @@ La migration avec OMM se déroule en 3 étapes : créer un projet, configurer l
 
     Cliquez sur <code className="action">Nouvelle migration</code> pour paramétrer votre migration :
 
-    <img className="thumbnail" alt="Création de la migration de MX Plan vers Zimbra dans OVHcloud Mail Migrator" src="/images/web-cloud/email-and-collaborative-solutions/zimbra/migrate-mxplan-to-zimbra/omm-create-migration.png" loading="lazy" />
+    <img className="thumbnail" alt="Création de la migration de MX Plan vers Zimbra dans OVHcloud Mail Migrator" src="/images/assets/screens/email-clients/omm/omm-create-migration-02.png" loading="lazy" />
 
     - **Compte source** :
         - **Type de compte** : sous la catégorie `OVHcloud`, choisissez `MX Plan` ou `Auto détection`. Cliquez sur <code className="action">Se connecter</code> pour vous identifier avec votre compte OVHcloud et sélectionner automatiquement le service et l'adresse à migrer (exemple : `contact@mydomain.ovh`). Saisissez ensuite le mot de passe de ce compte e-mail.
@@ -149,7 +140,7 @@ Utilisez les options d'export de votre client de messagerie. Vous trouverez, dan
 Avant de supprimer votre compte MX Plan d'origine, connectez-vous au [webmail OVHcloud](/links/web/email) et vérifiez que tous vos éléments (e-mails, dossiers, contacts, agendas) ont bien été migrés vers le compte Zimbra. Une fois le compte d'origine supprimé, les éléments non migrés seront définitivement perdus.
 :::
 
-#### 2.1 - Suppression de l'ancienne adresse e-mail MX Plan <a name="step21"></a>
+#### 2.1 - Suppression de l'adresse e-mail MX Plan d'origine <a name="step21"></a>
 
 Pour supprimer l'adresse e-mail MX Plan (exemple : `contact@mydomain.ovh`), suivez notre guide « [Supprimer un compte e-mail](/guides/web-cloud/email-and-collaborative-solutions/common-email-features/delete-email-account) ».
 

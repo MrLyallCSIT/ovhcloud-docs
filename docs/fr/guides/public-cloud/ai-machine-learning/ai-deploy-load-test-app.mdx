@@ -25,16 +25,7 @@ Dans ce tutoriel, nous en utiliserons une et interpréterons les résultats.
 - Une app avec une API en cours d’exécution sur AI Deploy, dans votre projet Public Cloud.
 - Un environnement Python, avec suffisamment de CPU et de RAM ainsi qu’un accès internet (une machine virtuelle est recommandée).
 
-{/* CP-NAV-START:publiccloud-projects */}
----
-
-### Accès à l'espace client OVHcloud
-
-- **Lien direct :** <ManagerLink to="/#/pci/projects">Projets Public Cloud</ManagerLink>
-- **Chemin de navigation :** <code className="action">Public Cloud</code> > Sélectionnez votre projet
-
----
-{/* CP-NAV-END:publiccloud-projects */}
+[[cpnav:publiccloud-projects]]
 
 ### Choisir le bon outil de test de charge pour vos besoins
 
@@ -185,7 +176,7 @@ Une fois votre `locustfile.py` prêt, ouvrez l’interface web de Locust sur `[h
 
 L’interface web devrait ressembler à ceci :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/locust.png" loading="lazy" />
+<img className="thumbnail" alt="Interface web de Locust avec le formulaire Start new load test" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/locust.png" loading="lazy" />
 
 ### Lancer vos tests de charge
 
@@ -201,11 +192,11 @@ Lancez le test.
 
 À la fin du test de charge, vous verrez ce résumé rapide :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/result_locust.png" loading="lazy" />
+<img className="thumbnail" alt="Onglet Statistics de Locust avec les résultats du test de charge" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/result_locust.png" loading="lazy" />
 
 Si nous souhaitons obtenir plus de détails sur notre test, nous pouvons consulter les graphiques fournis par Locust dans l’onglet `charts`. Voici ce que l’on peut observer :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/locust_graphs.png" loading="lazy" />
+<img className="thumbnail" alt="Onglet Charts de Locust avec les requêtes par seconde et les temps de réponse" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/locust_graphs.png" loading="lazy" />
 
 Nous avons déployé cette API de 1 à 5 réplicas, avec 1 CPU pour chacun, complété par l’autoscaling. On peut voir que notre API a été légèrement surchargée. En effet, sur les graphiques comme dans le résumé rapide, on observe quelques échecs. Ces échecs sont dus à des erreurs serveur. On peut supposer que nous avons atteint certaines limites matérielles à un moment donné, par exemple avant de monter en charge vers un plus grand nombre de réplicas.
 
@@ -220,30 +211,30 @@ Voyons ces mêmes résultats en détail avec l’outil de monitoring d’AI Depl
 
 ### Interpréter les résultats avec le monitoring AI Deploy
 
-Rendez-vous dans l’espace client OVHcloud et accédez au détail de votre application déployée. Cliquez sur le bouton <code className="action">Accéder au tableau de bord</code>.
+Dans l’espace client OVHcloud, accédez au détail de votre application déployée. Cliquez sur le bouton <code className="action">Accéder au tableau de bord</code>.
 
 Ce dashboard est fourni gratuitement dans AI Deploy, pour chaque application déployée. Toutes les apps déployées sont regroupées dans un dashboard Grafana unique.
 
 Vous pouvez sélectionner l’app déployée en haut de ce dashboard Grafana, comme illustré ci-dessous :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/general_dashboard.png" loading="lazy" />
+<img className="thumbnail" alt="Tableau de bord Grafana App Monitoring avec le sélecteur et les panneaux Resource usage" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/general_dashboard.png" loading="lazy" />
 
 Avec ce dashboard, vous pouvez voir le pourcentage de CPU utilisé en temps réel, la latence HTTP de votre API, l’autoscaling de l’app, la bande passante réseau et bien plus encore.
 Les barres verticales bleues indiquent les événements de scaling.
 
 Voici le résultat pour la charge CPU, globalement (tous réplicas confondus) :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/cpu_spam.png" loading="lazy" />
+<img className="thumbnail" alt="Panneaux Grafana Resource usage pendant le test de charge" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/cpu_spam.png" loading="lazy" />
 
 On constate que notre app a scalé à plusieurs reprises et n’a pas atteint sa capacité maximale, grâce à l’autoscaling. Regardons maintenant la latence de notre application :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/latency_spam.png" loading="lazy" />
+<img className="thumbnail" alt="Panneaux Grafana HTTP avec la latence et le volume des appels" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/latency_spam.png" loading="lazy" />
 
 On voit ici que la latence a augmenté progressivement, puisque nous avons un taux d’apparition de deux nouveaux utilisateurs par seconde. La latence de l’API était stable autour de 750 ms, puis a atteint un pic à 1,5 s.
 
 Là encore, l’interprétation dépendra de vos besoins. Devons-nous fournir plus de CPU parce que la latence est trop élevée ? Cette question variera selon les besoins de vos clients. Pour un anti-spam, ajouter 1 seconde est considérable pour une entreprise recevant des milliers d’e-mails par jour, mais peu gênant s’il s’agit d’une douzaine par jour. Regardons maintenant le scaling de notre application :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/scaling_spam.png" loading="lazy" />
+<img className="thumbnail" alt="Panneaux Grafana Auto-scaling avec le nombre de répliques actives" src="/images/public-cloud/ai-machine-learning/deploy-tuto-10-locust/scaling_spam.png" loading="lazy" />
 
 On constate que le seuil a été plafonné à 75 % pour l’autoscaling, et que celui-ci a été respecté. Sur les 5 réplicas fournis à l’application, 4 ont été utilisés.
 
@@ -257,9 +248,9 @@ Documentation officielle de Locust : [Locust.io](https://docs.locust.io/en/stabl
 
 Comparaison des outils de test de charge : [Comparison of load testing tools](https://k6.io/blog/comparing-best-open-source-load-testing-tools/)
 
-Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+[[fragment:professional-services]]
 
-## Nous voulons vos retours !
+## Votre avis nous intéresse !
 
 N’hésitez pas à nous faire part de vos questions, retours et suggestions pour améliorer le service :
 

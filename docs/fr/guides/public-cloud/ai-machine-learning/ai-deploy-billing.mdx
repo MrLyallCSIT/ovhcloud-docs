@@ -33,11 +33,11 @@ Au cours de son cycle de vie, l’app passera par les statuts suivants :
 - `STOPPING` : l’app est en cours d’arrêt, vos ressources de calcul sont libérées. Les données éphémères sont supprimées.
 - `STOPPED` : l’app s’est terminée normalement. Vous pouvez la redémarrer quand vous le souhaitez ou la supprimer. Elle conservera le même endpoint.
 - `FAILED` : l’app s’est terminée en erreur, par exemple si l’image Docker est invalide (inaccessible, construite avec linux/arm, …).
-- `ERROR` : l’app s’est terminée en raison d’une erreur backend (problème du côté d’OVHcloud). Vous pouvez [contacter notre support](https://help.ovhcloud.com/csm?id=csm_get_help).
+- `ERROR` : l’app s’est terminée en raison d’une erreur backend (problème du côté d’OVHcloud). Vous pouvez [contacter notre support](/links/support-contact).
 - `DELETING` : l’app est en cours de suppression. Une fois supprimée, vous ne la verrez plus, elle n’existera plus.
 - `DELETED` : l’app est entièrement supprimée.
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-guide-06-billing-concept/ai.deploy.lifecycle.png" loading="lazy" />
+<img className="thumbnail" alt="Chronologie du cycle de vie d'une application AI Deploy depuis Launch jusqu'à Delete en passant par Queued Initializing Scaling Running Standby Stopping et Stopped avec le CPU/GPU non facturé en dehors de la phase Running et les données distantes facturées au tarif Object Storage" src="/images/public-cloud/ai-machine-learning/deploy-guide-06-billing-concept/ai.deploy.lifecycle.png" loading="lazy" />
 
 ## Principes de facturation
 
@@ -61,7 +61,7 @@ Les ressources **optionnelles**, non incluses avec AI Deploy, sont :
 
 Voici un graphique détaillé illustrant chaque étape facturée ou non pendant le workflow AI Deploy :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-guide-06-billing-concept/ai.deploy.billing.png" loading="lazy" />
+<img className="thumbnail" alt="Chronologie du cycle de vie d'une application AI Deploy de Launch à Delete annotée sous chaque phase avec ce qui se passe et ce qui est facturé notamment les ressources de calcul allouées par réplique pendant Running et les données éphémères perdues une fois Stopped" src="/images/public-cloud/ai-machine-learning/deploy-guide-06-billing-concept/ai.deploy.billing.png" loading="lazy" />
 
 ### Détails des ressources de calcul
 
@@ -140,10 +140,10 @@ Le calcul du prix pour le calcul variera dans le temps en raison de l’autoscal
 1 (app) x 1 (heure) x 3 (réplicas) x 1 (GPU) x 1,93 € (prix / GPU) = **5,79 euros**
 Total : **15,44 euros**, facturés en fin de mois.
 
-## Nous voulons vos retours !
+## Votre avis nous intéresse !
 
 N’hésitez pas à nous faire part de vos questions, retours et suggestions pour améliorer le service :
 
 - Sur le [serveur Discord OVHcloud](https://discord.gg/ovhcloud)
 
-Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+[[fragment:professional-services]]

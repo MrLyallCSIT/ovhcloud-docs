@@ -804,16 +804,16 @@ func (r *OvhNginxReconciler) SetupWithManager(mgr ctrl.Manager) error {
 
 :::info
 Si ce type d'erreur survient :
-:::
 
 ```bash
 controllers/ovhnginx_controller.go:22:4: no required module provides package github.com/ovhcloud-devrel/nginx-go-operator/api/v1; to add it:
     go get github.com/ovhcloud-devrel/nginx-go-operator/api/v1
 Error: not all generators ran successfully
 ```
+
 Vous avez certainement oublié de changer le nom du dépôt lors de la phase d'init de ce tutoriel.
 Pour corriger cela, vous devez modifier l'instruction d'import dans le fichier `./controllers/ovhnginx_controller.go`, en remplaçant le dépôt GitHub `ovhcloud-devrel` dans `tutorialsv1 "github.com/ovhcloud-devrel/nginx-go-operator/api/v1"` par votre propre dépôt GitHub.
->
+:::
 
 ### Tester l'opérateur en « mode dev »
 
@@ -1412,6 +1412,6 @@ Le pattern des [opérateurs](https://kubernetes.io/docs/concepts/extend-kubernet
 
 Le [SDK](https://operatorframework.io/operator-capabilities/) de l'opérateur.
 
-- Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+- Pour une formation ou une assistance technique sur la mise en œuvre de nos solutions, contactez votre commercial ou consultez la page [Professional Services](/links/professional-services) pour obtenir un devis et faire analyser votre projet par nos experts.
 
 - Échangez avec notre [communauté d'utilisateurs](/links/community).

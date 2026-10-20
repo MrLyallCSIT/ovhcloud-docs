@@ -10,7 +10,7 @@ Pour être lancée, notre application AI Deploy **doit être conteneurisée**, �
 
 Pendant que notre app est en cours d'exécution, il est probable que nous devions **mettre à jour notre image Docker** pour corriger des problèmes ou apporter de nouvelles fonctionnalités. C'est pourquoi nous allons voir dans ce tutoriel **comment faire en sorte que notre app utilise la version mise à jour de notre image Docker**.
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-guide-08-update-custom-docker-image/update_docker_img_deploy.svg" loading="lazy" />
+<img className="thumbnail" alt="Schéma de l'utilisation d'une image Docker mise à jour dans une application déployée montrant le tag et le push vers le registre d'images puis ovhai app set-image pour mettre à jour l'image puis l'arrêt et le redémarrage de l'application pour qu'AI Deploy récupère l'image mise à jour" src="/images/public-cloud/ai-machine-learning/deploy-guide-08-update-custom-docker-image/update_docker_img_deploy.svg" loading="lazy" />
 
 ## Prérequis
 
@@ -19,16 +19,7 @@ Pendant que notre app est en cours d'exécution, il est probable que nous devion
 - [Docker](https://www.docker.com/get-started) installé sur votre ordinateur local ou une machine virtuelle
 - La [CLI OVHcloud AI](/guides/public-cloud/ai-machine-learning/ai-cli-install-client)
 
-{/* CP-NAV-START:publiccloud-projects */}
----
-
-### Accès à l'espace client OVHcloud
-
-- **Lien direct :** <ManagerLink to="/#/pci/projects">Projets Public Cloud</ManagerLink>
-- **Chemin de navigation :** <code className="action">Public Cloud</code> > Sélectionnez votre projet
-
----
-{/* CP-NAV-END:publiccloud-projects */}
+[[cpnav:publiccloud-projects]]
 
 ## En pratique
 
@@ -74,7 +65,7 @@ Cependant, si nous **arrêtons et redémarrons** l'app, l'image utilisée sera c
 
 Cette opération d'arrêt et de redémarrage peut être effectuée depuis le <ManagerLink to="/">espace client OVHcloud</ManagerLink> (UI) en cliquant sur le bouton `...` à côté de votre app, comme illustré sur la capture d'écran ci-dessous :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/deploy-guide-08-update-custom-docker-image/stop_start_app_control-panel.png" loading="lazy" />
+<img className="thumbnail" alt="Onglet Apps d'AI Deploy listant les applications déployées avec le menu d'actions ouvert sur l'application speech_to_text_app-compassionate en cours d'exécution affichant Details Generate a token Start Stop et Delete" src="/images/public-cloud/ai-machine-learning/deploy-guide-08-update-custom-docker-image/stop_start_app_control-panel.png" loading="lazy" />
 
 Exécutez-la depuis la CLI `ovhai` avec les commandes suivantes :
 
@@ -113,8 +104,8 @@ Découvrez comment utiliser des registres publics et privés lorsque vous travai
 
 Découvrez quelques apps AI Deploy que nous avons créées avec une API ou un frontend web via notre [Portfolio d'apps](/guides/public-cloud/ai-machine-learning/ai-deploy-apps-portfolio).
 
-Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+[[fragment:professional-services]]
 
-## Nous voulons vos retours !
+## Votre avis nous intéresse !
 
 N'hésitez pas à nous faire part de vos questions, retours et suggestions pour améliorer le service sur le [serveur Discord OVHcloud](https://discord.gg/ovhcloud).

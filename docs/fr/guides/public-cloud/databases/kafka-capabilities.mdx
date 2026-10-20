@@ -1,10 +1,9 @@
 ---
 title: Capacités et limitations pour Analytics avec Kafka
 description: Découvrez les capacités et limitations d'Analytics pour Kafka
-lastUpdated: 2026-05-22
+lastUpdated: 2026-10-19
 ---
 
-import Api from '@components/Api';
 
 
 ## Objectif
@@ -17,28 +16,15 @@ Nous améliorons continuellement nos offres. Vous pouvez suivre et proposer des 
 
 ### Régions prises en charge et multi-AZ
 
-L'offre Public Cloud Analytics est disponible dans les régions suivantes :
-
-- `BHS` (Beauharnois, Canada)
-- `DE` (Francfort, Allemagne)
-- `GRA` (Gravelines, France)
-- `SBG` (Strasbourg, France)
-- `SGP` (Singapour, Singapour)
-- `EU-WEST-PAR` (Paris, France)
-- `EU-SOUTH-MIL` (Milan, Italie)
-- `UK` (Londres, Royaume-Uni)
-- `WAW` (Varsovie, Pologne)
-- `RBX` (Roubaix, France)
-- `AP-SOUTH-MUM` (Mumbai, Inde)
+L'offre Public Cloud Analytics est disponible dans toutes les régions Public Cloud 1-AZ et 3-AZ.
 
 ### Versions de Kafka
 
 L'offre Public Cloud Analytics prend en charge les versions Kafka suivantes :
 
-- Kafka 3.8 (bientôt obsolète)
 - Kafka 3.9
-- Kafka 4.0
-- Kafka 4.1
+- Kafka 4.2
+- Kafka 4.3
 
 Veuillez consulter le [guide sur la politique de cycle de vie d'Analytics](/guides/public-cloud/data-analytics/analytics/lifecycle-policy) pour connaître les recommandations concernant les mises à niveau de version et les annonces de fin de vie des versions majeures. Vous pouvez également suivre le cycle de publication de Kafka sur leur page officielle : [https://kafka.apache.org/downloads](https://kafka.apache.org/downloads)
 
@@ -125,11 +111,13 @@ Nous autorisons environ 100 connexions par 4 Go de RAM, avec un plafond de 1000 
 
 Ainsi, par exemple, sur un serveur disposant de 7 Go de mémoire, vous obtiendrez environ 200 connexions, et avec 15 Go de mémoire, vous obtiendrez 400 connexions.
 
-#### Schema registry
+#### Schema Registry
 
-Le schema registry est pris en charge et peut être activé sur un service Kafka en cours d'exécution en définissant `schemaRegistry` sur `true` via un appel API :
+Le Schema Registry est pris en charge et peut être activé sur un service Kafka en cours d'exécution. Les utilisateurs ont besoin d'une ACL Schema Registry pour lire ou enregistrer des schémas. Consultez le [guide du Schema Registry](/guides/public-cloud/data-analytics/analytics/kafka-enable-schema-registry) pour plus d'informations.
 
-<Api version="v1" section="/cloud" method="PUT" route={"/cloud/project/\{serviceName\}/database/kafka/\{clusterId\}"} />
+#### API REST
+
+Une API REST peut être activée sur un service Kafka en cours d'exécution, pour produire et consommer des messages en HTTPS. Consultez le [guide de l'API REST](/guides/public-cloud/data-analytics/analytics/kafka-enable-rest-api) pour plus d'informations.
 
 
 #### Paramètres avancés
@@ -153,7 +141,9 @@ Veuillez noter que si le service d'analytics est supprimé, les logs et métriqu
 
 La création d'utilisateurs est possible via le Control Panel et l'API.
 
-Vous pouvez spécifier un nom d'utilisateur pour chaque utilisateur. Par défaut, le rôle est **admin**.
+Vous pouvez spécifier un nom d'utilisateur pour chaque utilisateur. L'utilisateur préconfiguré `avnadmin` dispose de la permission `admin` sur tous les topics. Tout autre utilisateur n'a aucun accès tant que vous ne lui en accordez pas avec une liste de contrôle d'accès (ACL). Consultez le [guide des ACL](/guides/public-cloud/data-analytics/analytics/kafka-configure-acl) pour plus d'informations.
+
+Par défaut, vous pouvez créer jusqu'à 50 utilisateurs de service par service. Si vous avez besoin de plus de 50 utilisateurs, contactez le support OVHcloud pour demander une augmentation de cette limite.
 
 #### Topics
 
@@ -169,10 +159,10 @@ Pour chaque topic, vous pouvez spécifier :
 - La réplication minimale synchronisée (in-sync) ;
 - La politique de suppression.
 
-## Nous voulons vos retours !
+## Votre avis nous intéresse !
 
 Nous serions ravis de répondre à vos questions et apprécions tout retour que vous pourriez nous faire.
 
-Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+[[fragment:professional-services]]
 
 Vous êtes sur Discord ? Rejoignez notre chaîne via [https://discord.gg/ovhcloud](https://discord.gg/ovhcloud) et interagissez directement avec l’équipe qui développe notre service d'analytics !

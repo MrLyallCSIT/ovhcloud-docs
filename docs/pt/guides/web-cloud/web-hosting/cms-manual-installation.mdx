@@ -14,10 +14,6 @@ Este tutorial tem como objetivo ajudá-lo a instalar manualmente um CMS (Content
 
 [[fragment:support-scope]]
 
-:::warning
-Colocamos à sua disposição este tutorial para o acompanhar o melhor possível em tarefas comuns. No entanto, se precisar de ajuda, recomendamos que recorra a um [fornecedor especializado](/links/partner) ou ao editor do CMS. Não poderemos proporcionar-lhe assistência técnica.
-:::
-
 :::tip
 Para instalar o seu CMS **automaticamente** a partir do seu <ManagerLink to="/">Área de Cliente OVHcloud</ManagerLink>, consulte o nosso manual sobre a [instalação de um módulo "num clique"](/guides/web-cloud/web-hosting/cms-install-1-click-modules).
 
@@ -30,16 +26,7 @@ Para instalar o seu CMS **automaticamente** a partir do seu <ManagerLink to="/">
 - Ter um plano de [alojamento web](/links/web/hosting) que contenha, pelo menos, uma base de dados.
 - Dispor de um [nome de domínio](/links/web/domains)
 
-{/* CP-NAV-START:web-hosting */}
----
-
-### Acesso à Área de Cliente OVHcloud
-
-- **Ligação direta:** <ManagerLink to="/#/web/hosting">Hosting plans</ManagerLink>
-- **Caminho de navegação:** <code className="action">Web Cloud</code> > <code className="action">Alojamentos</code> > Selecione o seu alojamento web
-
----
-{/* CP-NAV-END:web-hosting */}
+[[cpnav:web-hosting]]
 
 ## Instruções
 
@@ -129,7 +116,7 @@ Se definir um nome de "pasta raiz" que não existe no seu alojamento web, este s
 
 - Certifique-se de que o domínio que utiliza para aceder ao seu CMS, bem como o subdomínio "www" apontam para o endereço IP do seu serviço de [alojamento web](/links/web/hosting).
 
-Para obter o endereço IP da sua oferta de alojamento web, aceda à <ManagerLink to="/">Área de Cliente OVHcloud</ManagerLink> na parte <code className="action">Web Cloud</code> e selecione a sua oferta de alojamento web na secção <code className="action">Alojamentos</code>.<br/>
+Para obter o endereço IP da sua oferta de alojamento web, selecione a sua oferta de alojamento web na secção <code className="action">Alojamentos</code>.<br/>
 Na caixa <code className="action">Informações gerais</code> à direita, encontrará o endereço IP do seu alojamento web no formulário <code className="action">IPv4</code>.
 
 Se a zona DNS ativa do seu domínio for gerida no seu <ManagerLink to="/">Área de Cliente OVHcloud</ManagerLink>, compare o endereço IP do seu alojamento com o endereço IP presente na zona DNS do seu domínio, através da nossa documentação sobre as [zonas DNS da OVHcloud](/guides/web-cloud/domains/dns-zone-edit).
@@ -190,7 +177,7 @@ Se for também um CMS idêntico ao que deve instalar, pode utilizar [este guia](
 
 Aceda à sua base de dados para identificar os "prefixos" das tabelas já presentes no seu interior. Isto para não escolher um "prefixo" de mesa já utilizado por outro dos seus websites.
 
-- Para aceder à base de dados associada ao alojamento web, consulte o [guia](/guides/web-cloud/web-hosting/sql-create-database#aceder-a-interface-phpmyadmin).
+- Para aceder à base de dados associada ao alojamento web, consulte o [guia](/guides/web-cloud/web-hosting/sql-create-database#aceder-à-interface-phpmyadmin).
 - Para aceder a uma base de dados presente numa Web Cloud Databases, consulte [este guia](/guides/web-cloud/databases/db-connecting-database-server).
 
 :::

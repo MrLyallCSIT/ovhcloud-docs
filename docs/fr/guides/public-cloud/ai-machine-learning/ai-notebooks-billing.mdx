@@ -15,7 +15,7 @@ AI Notebooks est lié à un projet Public Cloud. L'ensemble du projet est factur
 ## Cycle de vie des AI Notebooks
 
 :::warning
-Par défaut, votre AI Notebook s'arrête automatiquement après **7 jours consécutifs passés à l'état RUNNING**. Tous vos paramètres et données sont conservés et vous pouvez le redémarrer à tout moment. Vous pouvez également activer le **redémarrage automatique** pour qu'il redémarre tous les 7 jours, ou contacter [notre support](https://help.ovhcloud.com/csm?id=csm_get_help) pour prolonger cette période à **28 jours**.
+Par défaut, votre AI Notebook s'arrête automatiquement après **7 jours consécutifs passés à l'état RUNNING**. Tous vos paramètres et données sont conservés et vous pouvez le redémarrer à tout moment. Vous pouvez également activer le **redémarrage automatique** pour qu'il redémarre tous les 7 jours, ou contacter [notre support](/links/support-contact) pour prolonger cette période à **28 jours**.
 
 :::
 
@@ -30,7 +30,7 @@ Au cours de sa vie, le notebook passera par les statuts suivants :
 - `ERROR` : le notebook s'est arrêté en raison d'une erreur backend. Vous pouvez contacter notre support.
 - `DELETING` : le notebook est en cours de suppression. Une fois supprimé, vous ne le verrez plus, et il n'existera plus. Ses données internes du dossier [/workspace](/guides/public-cloud/ai-machine-learning/ai-notebooks-workspace) ne seront pas supprimées automatiquement après la suppression du notebook. Si vous êtes sûr(e) de vouloir les supprimer, vous pouvez les retrouver et les supprimer dans le conteneur `notebooks_workspace` de votre Object Storage, sous le répertoire de l'ID du notebook.
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/notebook-guide-billing-concept/ai_notebooks_lifecycle.png" loading="lazy" />
+<img className="thumbnail" alt="Chronologie du cycle de vie d'un AI Notebook depuis Launch jusqu'à Delete en passant par Starting Running Stopping et Stopped annotée avec la sauvegarde automatique du workspace la branche expiration time reached et ce qui se passe à chaque phase" src="/images/public-cloud/ai-machine-learning/notebook-guide-billing-concept/ai_notebooks_lifecycle.png" loading="lazy" />
 
 ## Principes de facturation
 
@@ -45,7 +45,7 @@ AI Notebooks est une **solution facturée à l'usage**. Vous ne payez que pour l
 
 Voici un graphique détaillé illustrant chaque étape facturée ou non pendant le déroulement d'un AI Notebook :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/notebook-guide-billing-concept/ai.notebooks.billing.png" loading="lazy" />
+<img className="thumbnail" alt="Chronologie du cycle de vie d'un AI Notebook de Launch à Delete avec le CPU/GPU facturé uniquement pendant Running les données distantes facturées au tarif Object Storage et le workspace facturé une fois Stopped si le notebook a plus de 30 jours ou si le workspace dépasse 10G" src="/images/public-cloud/ai-machine-learning/notebook-guide-billing-concept/ai.notebooks.billing.png" loading="lazy" />
 
 ### Détails des ressources de calcul
 
@@ -154,10 +154,10 @@ Toutes les images AI suivent la politique de cycle de vie des versions Python. U
 - Pendant cette période, les images continueront de recevoir des mises à jour de sécurité.
 - Une fois que l'OS sous-jacent aura atteint sa fin de vie, vous pourrez toujours démarrer vos notebooks, mais l'image ne sera plus maintenue. Nous vous encourageons vivement à migrer vers une version d'image plus récente.
 
-## Nous voulons vos retours !
+## Votre avis nous intéresse !
 
 N’hésitez pas à nous faire part de vos questions, retours et suggestions pour améliorer le service :
 
 - Sur le [serveur Discord OVHcloud](https://discord.gg/ovhcloud)
 
-Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+[[fragment:professional-services]]

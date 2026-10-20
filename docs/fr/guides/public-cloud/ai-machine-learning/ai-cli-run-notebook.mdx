@@ -1,7 +1,7 @@
 ---
 title: CLI - Lancer un AI Notebook
 description: Découvrez comment lancer un AI Notebooks avec la CLI
-lastUpdated: 2025-11-17
+lastUpdated: 2026-08-27
 ---
 
 ## Objectif
@@ -130,6 +130,10 @@ h100-1-gpu   gpu  NVIDIA H100        28           350.0 GiB       H100 NVIDIA   
 l40s-1-gpu   gpu  NVIDIA L40s        13           80.0 GiB        L40s NVIDIA          false   4
 l4-1-gpu     gpu  NVIDIA L4          20           80.0 GiB        L4 NVIDIA            false   4
 ```
+
+:::info
+La liste des flavors disponibles dépend de la région sur laquelle vous êtes connecté (`ovhai config set <region>`). Relancez `ovhai capabilities flavor list` après avoir changé de région pour vérifier.
+:::
 
 Par exemple, pour lancer un notebook avec le flavor `a100-1-gpu`, vous utiliseriez la commande suivante : 
 
@@ -265,7 +269,7 @@ Status:
 
 Maintenant que le notebook est dans l'état `RUNNING`, une adresse https est définie dans le champ `Url`. Cette `URL` correspond à votre serveur JupyterLab. En collant cette `URL` dans votre navigateur, l'écran suivant s'affiche :
 
-<img className="thumbnail" alt="image" src="/images/public-cloud/ai-machine-learning/cli-11-howto-run-notebook-cli/jupyterlab_home_page.png" loading="lazy" />
+<img className="thumbnail" alt="Page d'accueil du Launcher JupyterLab proposant les sections Notebook Console et Other avec les tuiles Python 3 Terminal et Text File" src="/images/public-cloud/ai-machine-learning/cli-11-howto-run-notebook-cli/jupyterlab_home_page.png" loading="lazy" />
 
 Vous pouvez maintenant commencer à écrire du code dans votre notebook. Comme nous avons utilisé le framework PyTorch dans notre exemple, nous pourrons l'utiliser sans avoir besoin d'installer quoi que ce soit nous-mêmes.
 
@@ -322,9 +326,9 @@ Découvrez comment accéder à vos données Object Storage et à vos dépôts Gi
 
 Découvrez comment partager vos notebooks avec d'autres personnes [ici](/guides/public-cloud/ai-machine-learning/ai-cli-sharing-notebooks).
 
-Si vous avez besoin d'une formation ou d'une assistance technique pour la mise en oeuvre de nos solutions, contactez votre commercial ou cliquez sur [ce lien](/links/professional-services) pour obtenir un devis et demander une analyse personnalisée de votre projet à nos experts de l’équipe Professional Services.
+[[fragment:professional-services]]
 
-## Nous voulons vos retours !
+## Votre avis nous intéresse !
 
 N’hésitez pas à nous faire part de vos questions, retours et suggestions pour améliorer le service :
 
